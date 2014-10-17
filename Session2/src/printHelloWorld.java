@@ -1,20 +1,23 @@
 /**
  * Created by ravi on 11/09/14.
  */
-public class printHelloWorld {
+public class PrintHelloWorld {
 
-  public static void MyMain(String[] args) {
+  public static void main(String[] args) {
     HelloWorld helloWorld = new HelloWorld();
-    printHelloWorld(helloWorld);
-  }
-
-  private static void printHelloWorld(HelloWorld helloWorld) {
-    System.ot.println(helloWorld.hello.toLowerCase() + " " + helloWorld.world.toLowerCase());
+    helloWorld.hello = "HELLO";
+    helloWorld.world = "WORLD";
+    helloWorld.print();
   }
 
   private static class HelloWorld {
     String hello;
     String world;
+
+    public void print() {
+      System.out.println(hello.toLowerCase() + " " + world.toLowerCase());
+    }
+
   }
 
 }
