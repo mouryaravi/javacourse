@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
-import java.util.List;
 
 /**
  * Created by ravi on 10/09/14.
@@ -22,11 +20,19 @@ public class FileWriter {
       if (Files.notExists(path)) {
         Files.createFile(path);
       }
-      Files.write(path, line.getBytes(), new OpenOption[] {StandardOpenOption.APPEND});
+      path = Files.write(path, line.getBytes(), new OpenOption[] {StandardOpenOption.APPEND});
     } catch (IOException e) {
       e.printStackTrace();
     }
 
+  }
+
+  public void deleteFile() {
+    try {
+      Files.deleteIfExists(FileSystems.getDefault().getPath(filePath));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 }
